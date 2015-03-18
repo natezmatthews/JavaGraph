@@ -1,0 +1,92 @@
+README for MyGraph.java
+Nate Matthews, Jan 15th 2015
+
+MyGraph is an implementation of a directed graph data structure. Nodes are
+referenced using characters. No two nodes have the same character, and every
+node has an identifying character. Edges are one-way and each have a weight
+greater than zero.
+
+*---------------*
+* Node Methods: *
+*---------------*
+boolean hasNode(char id)
+Returns true if a node with identifying character 'id' exists in the graph,
+false if not.
+
+void newNode(char id)
+Creates a new node with identifying character 'id', unless a node with that id
+already exists, in which case it prints an error message and does nothing.
+
+*---------------*
+* Edge Methods: *
+*---------------*
+boolean hasEdge(char node1, char node2)
+Returns true if an edge exists from the node identified by 'node1' to the node
+identified by 'node2', false if not.
+
+void newEdge(char node1, char node2, int wgt)
+Creates a new edge in the table with weight 'wgt', starting from the node
+identified by 'node1' and ending at the node identified by 'node2'. If either of
+those nodes does not already exist, they are created. Prints an error message if
+wgt is less than 1.
+
+int edgeWeight(char node1, char node2)
+Returns the weight of the edge from node1 to node2. If no such node exists,
+returns 0.
+
+*----------------*
+* Route Methods: *
+*----------------*
+| A route is a series of existing nodes that can be traversed from start to
+| finish by traveling along existing edges in the correct direction. A route may
+| contain the same node or edge multiple times, so long as it does not violate
+| the previously stated condition.
+|
+| Where a function deals with a route, that route is passed to the function as
+| represented by an ArrayList, where each node in the route corresponds to a
+| char in the ArrayList, in the order of the route.
+
+boolean hasRoute(ArrayList stops)
+Returns true if the route represented by the ArrayList exists, false otherwise
+(such as if a node or edge needed for the route does not exist, or does not
+exist in that order).
+
+int routeTotalWgt(ArrayList stops)
+Returns the total weights of all the edges in the route represented by the
+passed ArrayList. Returns 0 if the route has only one node, or -1 if the route
+does not exist.
+
+int routesMaxStops(char start, char end, int max)
+Returns the number of routes that start and end at the nodes specified by the
+passed chars with 'max' or fewer stops. If 'max' is less than 2 the function
+prints an error message and returns 0.
+
+int routesExactStops(char start, char end, int exact)
+Returns the number of routes that start and end at the nodes specified by the
+passed chars with 'exact' or fewer stops. If 'exact' is less than 2 the function
+prints an error message and returns 0.
+
+int lenShortestRoute(char start, char end)
+Returns the length of the shortest route between nodes 'start' and 'end', where
+the length is the sum of the weights of the edges connecting the nodes. If no 
+such route exists, function will return 2147483647 (MAX_VALUE).
+
+int routesMaxWgt(char start, char end, int wgt)
+Returns the number of routes that start and end at the nodes specified by the
+passed chars with 'wgt' or less total weight.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
